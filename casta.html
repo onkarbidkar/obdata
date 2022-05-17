@@ -1,0 +1,33 @@
+<p>
+ICS1-helleman<br><br>
+n=int (input("enter prime number(n)"))<br>
+g=int (input("enter base prime number(g)"))<br>
+alicesecret=int(input("enter alice secret key(x)"))<br>
+bobsecret=int (input("enter bob secret key(y)"))<br>
+print("publicly shared prime(n):",n)<br>
+print("publicly shared prime(g):",g)<br>
+print("alice secret key:",alicesecret)<br>
+print("bob secret key:",bobsecret)<br>
+A=(g**alicesecret)%n<br>
+print("\n Alice sends (A) to Bob:",A)<br>
+B=(g**bobsecret)%n<br>
+print("\n Bob sends (B) to Alice:",B)<br>
+alicesecretkey=(B**alicesecret)%n<br>
+print("\n Alice shared secret:",alicesecretkey)<br>
+bobsecretkey=(A**bobsecret)%n<br>
+print("\n Bob shared secret:",bobsecretkey)<br>
+</p>
+
+<p>
+ICS2-S-DES<br>
+!pip install pyDes<br>
+import pyDes<br>
+data=input("enter plain text for encryption")<br>
+key=input(" enter 16/24 byte string for key generation")<br>
+k=pyDes.triple_des(key,padmode=pyDes.PAD_PKCS5)<br>
+e=k.encrypt(data)<br>
+print("cipher text:%r"%e)<br>
+print("plain text:%r"%k.decrypt(e))<br>
+</p>
+
+
